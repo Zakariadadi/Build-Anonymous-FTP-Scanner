@@ -1,0 +1,25 @@
+Certainly! Here's a brief explanation of each part of the Python script:
+
+1. **Importing the ftplib module:**
+   - `import ftplib`: This line imports the `ftplib` module, which provides FTP (File Transfer Protocol) functionality in Python.
+
+2. **Defining the `anonlogin` function:**
+   - `def anonlogin(hostname):`: This line defines a function named `anonlogin` that takes one argument, `hostname`, representing the IP address or hostname of the FTP server.
+
+3. **Trying to establish an anonymous FTP login:**
+   - `try:`: This starts a try block where the code that might raise an exception is placed.
+   - `ftp = ftplib.FTP(hostname)`: This line creates an FTP object connected to the specified `hostname`.
+   - `ftp.login('anonymous')`: This attempts to log in to the FTP server using the username 'anonymous'. This is the standard way to attempt anonymous login to an FTP server.
+   - `ftp.quit()`: This line closes the connection to the FTP server.
+   - `return True`: If the login is successful, the function returns `True`.
+
+4. **Handling exceptions if login fails:**
+   - `except Exception:`: This block catches any exceptions that might occur during the try block.
+   - `print('\n [-] ' + str(hostname) + ' FTP Anonymous Login Failed.')`: This line prints a message indicating that the anonymous login failed.
+   - `return False`: If the login fails or any exception occurs, the function returns `False`.
+
+5. **Main block to execute the function:**
+   - `if __name__ == '__main__':`: This block checks if the script is being run directly.
+   - `anonlogin('90.130.70.47')`: This line calls the `anonlogin` function with the IP address `'90.130.70.47'` as an argument, attempting an anonymous login to the FTP server with that IP address.
+
+That's a brief explanation of each part of the script. It essentially attempts to connect to an FTP server anonymously and prints whether the login succeeded or failed.
